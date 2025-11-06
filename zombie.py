@@ -37,6 +37,7 @@ class Zombie:
         self.load_images()
         self.frame = random.randint(0, 9)
         self.dir = random.choice([-1,1])
+        self.hit_count = 0
 
 
     def get_bb(self):
@@ -69,6 +70,9 @@ class Zombie:
                 self.size_x /= 2
                 self.size_y /= 2
                 self.y = self.y - 100 + self.size_y/2
+                self.hit_count += 1
+                if self.hit_count >= 2:
+                    game_world.remove_object(self)
 
 
 

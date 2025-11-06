@@ -1,4 +1,4 @@
-from pico2d import load_image, get_time, load_font, draw_rectangle
+from pico2d import load_image, get_time, load_font, draw_rectangle, close_canvas
 from sdl2 import SDL_KEYDOWN, SDLK_SPACE, SDLK_RIGHT, SDL_KEYUP, SDLK_LEFT
 
 import game_world
@@ -181,3 +181,6 @@ class Boy:
     def handle_collision(self, group, other):
         if group == 'boy:ball':
             self.ball_count += 1
+
+        elif group == 'zombie:boy':
+            quit()

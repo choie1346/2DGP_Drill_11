@@ -30,6 +30,7 @@ def init():
 
     boy = Boy()
     game_world.add_object(boy, 1)
+    game_world.add_collision_pair('zombie:boy', None, boy)
 
     # 바닥에 공을 배치
     global balls
@@ -48,6 +49,7 @@ def init():
     for zombie in zombies:
         game_world.add_object(zombie, 1)
         game_world.add_collision_pair('zombie:ball', zombie, None)
+        game_world.add_collision_pair('zombie:boy', zombie, None)
 
 def update():
     game_world.update()
