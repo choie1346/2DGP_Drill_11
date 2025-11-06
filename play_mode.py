@@ -42,6 +42,12 @@ def init():
     for ball in balls:
         game_world.add_collision_pair('boy:ball', None, ball)
 
+
+    global zombies
+    zombies = [Zombie() for i in range(4)]
+    for zombie in zombies:
+        game_world.add_object(zombie, 1)
+
 def update():
     game_world.update()
     # 게임 내 모든 객체가 업데이트가 끝났기 떄문에 충돌검사를 해야함.
